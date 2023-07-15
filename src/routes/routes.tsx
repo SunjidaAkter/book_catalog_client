@@ -23,10 +23,10 @@ const routes = createBrowserRouter([
     path: "/signin",
     element: <Signin />,
   },
-  //   {
-  //     path: "*",
-  //     element: <NotFound />,
-  //   },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 export default routes;
