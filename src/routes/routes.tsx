@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../pages/Home";
 import Signup from "../pages/SignUp";
 import Signin from "../pages/SignIn";
+import NotFound from "../pages/NotFound";
 
 const routes = createBrowserRouter([
   {
