@@ -1,4 +1,3 @@
-import Card from "../components/Card";
 import { SignupForm } from "../components/SignupForm";
 
 export default function Signup() {
@@ -10,10 +9,12 @@ export default function Signup() {
             className="absolute inset-0 bg-cover"
             style={{
               backgroundImage:
-                "url(https://images.unsplash.com/photo-1590069261209-f8e9b8642343?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80)",
+                "url(https://images.unsplash.com/photo-1604866830893-c13cafa515d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNpZ251cCUyMGZvciUyMGJvb2tzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60)",
+              // "url(https://images.unsplash.com/photo-1622519624366-1b06e2f2aa0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80)",
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
+            <h1>hello</h1>
             {/* <img className="h-8" src={} alt="" /> */}
           </div>
           <div className="relative z-20 mt-auto">
@@ -54,3 +55,4 @@ export default function Signup() {
     </>
   );
 }
+// https://images.unsplash.com/photo-1622519624366-1b06e2f2aa0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80

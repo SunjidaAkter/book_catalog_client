@@ -5,7 +5,7 @@ interface SignupFormInputs {
   password: string;
 }
 
-export function SignupForm() {
+export function SigninForm() {
   const {
     register,
     handleSubmit,
@@ -49,11 +49,13 @@ export function SignupForm() {
             autoCapitalize="none"
             autoCorrect="off"
             {...register("password", { required: "Password is required" })}
-            className="input input-bordered w-full max-w-xs"
+            className="bg-none  input input-bordered w-full max-w-xs"
           />
           {errors.password && <p>{errors.password.message}</p>}
-          <button className="mt-7 btn btn-success">Signup With Email</button>
+          <button className="mt-7 btn btn-successS">Signin With Email</button>
         </div>
+        {/* </div> */}
+        {/* </div> */}
       </form>
     </div>
   );
