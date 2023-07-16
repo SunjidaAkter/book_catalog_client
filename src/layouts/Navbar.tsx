@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <>
@@ -43,19 +45,19 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn btn-ghost normal-case text-xl">BOOK WORM</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
+            <Link to="/all-books">
               <a>All books</a>
-            </li>
-            <li>
+            </Link>
+            <Link to="/signin">
               <a>Sign in</a>
-            </li>
-            <li>
+            </Link>
+            <Link to="/signup">
               <a>Sign up</a>
-            </li>
+            </Link>
           </ul>
         </div>
         <div className="navbar-end">
