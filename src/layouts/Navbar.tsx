@@ -1,7 +1,7 @@
 export default function Navbar() {
   return (
     <>
-      <div className="navbar bg-lime-300">
+      <div className="fixed z-50 top-0 left-0 text-white navbar bg-opacity-70 backdrop-blur-2xl bg-lime-900">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

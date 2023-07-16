@@ -1,6 +1,6 @@
 export default function Table() {
   return (
-    <div className="px-24 pb-12">
+    <div className="px-24 py-12">
       <h1 className="pb-6 text-3xl font-extrabold text-center">Top Books</h1>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
@@ -15,7 +15,7 @@ export default function Table() {
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr className="bg-lime-50">
+            <tr className="bg-lime-100">
               <th>1</th>
               <td>Cy Ganderton</td>
               <td>Quality Control Specialist</td>
@@ -29,7 +29,7 @@ export default function Table() {
               <td>Purple</td>
             </tr>
             {/* row 1 */}
-            <tr className="bg-lime-50">
+            <tr className="bg-lime-100">
               <th>1</th>
               <td>Cy Ganderton</td>
               <td>Quality Control Specialist</td>
@@ -43,11 +43,46 @@ export default function Table() {
               <td>Purple</td>
             </tr>
             {/* row 1 */}
-            <tr className="bg-lime-50">
+            <tr className="bg-lime-100">
               <th>1</th>
               <td>Cy Ganderton</td>
               <td>Quality Control Specialist</td>
               <td>Blue</td>
+            </tr>
+            {/* row 2 */}
+            <tr>
+              <th>2</th>
+              <td>Hart Hagerty</td>
+              <td>Desktop Support Technician</td>
+              <td>Purple</td>
+            </tr>
+            {/* row 1 */}
+            <tr className="bg-lime-100">
+              <th>1</th>
+              <td>Cy Ganderton</td>
+              <td>Quality Control Specialist</td>
+              <td>Blue</td>
+            </tr>
+            {/* row 2 */}
+            <tr>
+              <th>2</th>
+              <td>Hart Hagerty</td>
+              <td>Desktop Support Technician</td>
+              <td>Purple</td>
+            </tr>
+            {/* row 1 */}
+            <tr className="bg-lime-100">
+              <th>1</th>
+              <td>Cy Ganderton</td>
+              <td>Quality Control Specialist</td>
+              <td>Blue</td>
+            </tr>
+            {/* row 2 */}
+            <tr>
+              <th>2</th>
+              <td>Hart Hagerty</td>
+              <td>Desktop Support Technician</td>
+              <td>Purple</td>
             </tr>
           </tbody>
         </table>
