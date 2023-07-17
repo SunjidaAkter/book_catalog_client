@@ -49,7 +49,7 @@ export function SigninForm() {
             autoCapitalize="none"
             autoCorrect="off"
             {...register("password", { required: "Password is required" })}
-            className="bg-none  input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs"
           />
           {errors.password && <p>{errors.password.message}</p>}
           <button className="mt-7 btn btn-successS">Signin With Email</button>

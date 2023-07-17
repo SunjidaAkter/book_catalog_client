@@ -14,7 +14,7 @@ export default function Signup() {
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            <h1>hello</h1>
+            <h1 className="text-white font-bold text-xl">BOOK WORM</h1>
             {/* <img className="h-8" src={} alt="" /> */}
           </div>
           <div className="relative z-20 mt-auto">

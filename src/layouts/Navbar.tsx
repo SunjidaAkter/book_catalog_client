@@ -45,20 +45,22 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">BOOK WORM</a>
+          <Link to="/">
+            <a className="text-white font-bold text-xl">BOOK WORM</a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <Link to="/all-books">
+          <div className="menu menu-horizontal px-1">
+            <Link className="mr-9" to="/all-books">
               <a>All books</a>
             </Link>
-            <Link to="/signin">
+            <Link className="mr-9" to="/signin">
               <a>Sign in</a>
             </Link>
-            <Link to="/signup">
+            <Link className="mr-9" to="/signup">
               <a>Sign up</a>
             </Link>
-          </ul>
+          </div>
         </div>
         <div className="navbar-end">
           <div className="dropdown dropdown-end">

@@ -52,7 +52,7 @@ export function SignupForm() {
             className="input input-bordered w-full max-w-xs"
           />
           {errors.password && <p>{errors.password.message}</p>}
-          <button className="mt-7 btn btn-success">Signup With Email</button>
+          <button className="mt-7 btn ">Signup With Email</button>
         </div>
       </form>
     </div>

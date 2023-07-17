@@ -1,4 +1,9 @@
-export default function Card() {
+import { IBook } from "../types/globalTypes";
+
+interface IProps {
+  book: IBook;
+}
+export default function Card({ book }: IProps) {
   return (
     <div className="my-6 card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -10,10 +15,12 @@ export default function Card() {
       </figure>
       <div className="card-body">
         <h2 className="card-title">
-          Shoes!
+          {book?.title}
           <div className="badge badge-secondary">NEW</div>
         </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p>{book?.author}</p>
+        <p>{book?.genre}</p>
+        <p>{book?.publicationDate}</p>
         <div className="card-actions justify-end">
           <div className="badge badge-outline">Fashion</div>
           <div className="badge badge-outline">Products</div>

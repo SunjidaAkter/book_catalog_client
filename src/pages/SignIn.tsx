@@ -15,6 +15,7 @@ export default function Signin() {
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
             {/* <img className="h-8" src={} alt="" /> */}
+            <h1 className="text-white font-bold text-xl">BOOK WORM</h1>
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2"></blockquote>
