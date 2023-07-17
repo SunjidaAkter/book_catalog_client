@@ -6,11 +6,14 @@ const bookApi = api.injectEndpoints({
       query: () => "/books",
     }),
     getBooks: builder.query({
-      query: (currentPage) => ({
+      query: (options) => ({
         url: "/books",
         params: {
-          page: currentPage,
-          limit: 6,
+          page: options?.currentPage,
+          limit: 4,
+          publicationYear: options?.publicationYear,
+          genre: options?.genre,
+          searchTerm: options?.searchTerm,
         },
       }),
     }),
