@@ -1,4 +1,3 @@
-import { Slider } from "@radix-ui/react-slider";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { IBook } from "../types/globalTypes";
 import Card from "../components/Card";
@@ -10,7 +9,7 @@ import {
   setPublicationYear,
   setSearchTerm,
 } from "../redux/features/book/bookSlice";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const { searchTerm, genre, currentPage, publicationYear } = useAppSelector(
@@ -39,9 +38,14 @@ export default function Products() {
     console.log(e.target.value);
     dispatch(setGenre(e.target.value));
   };
-  const handleSearch = (e: any) => {
-    console.log(e.target.value);
-    dispatch(setSearchTerm(e.target.value));
+  const handleSearch = () => {
+    const inputElement = document.getElementById(
+      "search-input"
+    ) as HTMLInputElement;
+    const inputValue = inputElement?.value;
+    console.log(inputValue);
+    dispatch(setSearchTerm(inputValue || ""));
+    inputElement.value = "";
   };
   const handleChange = (event: any) => {
     dispatch(setPublicationYear(event));
@@ -53,13 +57,17 @@ export default function Products() {
           <h1 className="text-2xl uppercase">Availability</h1>
         </div>
         <div className="form-control">
-          <div className="input-group">
+          <div className="flex justify-center items-center ">
             <input
               type="text"
               placeholder="Search…"
-              className="input input-bordered"
+              className="input input-bordered rounded-e-sm"
+              id="search-input"
             />
-            <button onClick={handleSearch} className="btn btn-square">
+            <button
+              onClick={handleSearch}
+              className="btn btn-square rounded-none"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -112,11 +120,6 @@ export default function Products() {
             <option>ইলেকট্রনিক্স</option>
           </select>
         </div>
-      </div>
-      <div className="col-span-9 grid grid-cols-2 gap-10 pb-20">
-        {data?.data.map((book: IBook) => (
-          <Card book={book}></Card>
-        ))}
         <div className="flex justify-center items-center px-[200px]">
           <button className="bg-red-800" onClick={handlePreviousPage}>
             Previous
@@ -127,80 +130,13 @@ export default function Products() {
           </button>
         </div>
       </div>
+      <div className="col-span-9 grid grid-cols-2 gap-10 pb-20">
+        {data?.data.map((book: IBook) => (
+          <Link to={`/details/${book._id}`}>
+            <Card book={book}></Card>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
-
-// const { data, isLoading, error } = useGetProductsQuery(undefined);
-
-// const { toast } = useToast();
-
-// const { priceRange, status } = useAppSelector((state) => state.product);
-
-// let productsData;
-
-// if (status) {
-//   productsData = data?.data?.filter(
-//     (item: { status: boolean; price: number }) =>
-//       item.status === true && item.price < priceRange
-//   );
-// } else if (priceRange > 0) {
-//   productsData = data?.data?.filter(
-//     (item: { price: number }) => item.price < priceRange
-//   );
-// } else {
-//   productsData = data?.data;
-// }
-// import { useDispatch } from "react-redux";
-// import Card from "../components/Card";
-// import { useAppSelector } from "../redux/hook";
-// import { IBook } from "../types/globalTypes";
-// import { useGetBooksQuery } from "../redux/features/book/bookApi";
-// import {
-//   setCurrentPageForNext,
-//   setCurrentPageForPrevious,
-// } from "../redux/features/book/bookSlice";
-
-// export default function Home() {
-//   const { currentPage } = useAppSelector((state) => state.book);
-//   const dispatch = useAppDispatch();
-//   const { data, isLoading, error } = useGetBooksQuery(currentPage);
-//   const handlePreviousPage = () => {
-//     if (currentPage > 1) {
-//       dispatch(setCurrentPageForPrevious());
-//     }
-//   };
-
-//   const handleNextPage = () => {
-//     const totalPages = Math.ceil(data?.meta?.total / 10);
-//     console.log(totalPages);
-//     if (currentPage < totalPages) {
-//       dispatch(setCurrentPageForNext());
-//     }
-//   };
-//   // const { data, isLoading, error } = useGetBooksQuery(currentPage);
-//   console.log(data, isLoading, error);
-//   return (
-//     <>
-//       <div className="py-12">
-//         <p className="pb-12 text-center text-3xl font-bold text-lime-950 ">
-//           Top Books
-//         </p>
-//         <div className="px-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-//           {data?.data.map((book: IBook) => (
-//             <Card book={book}></Card>
-//           ))}
-//           <div className="flex justify-center items-center px-[200px]">
-//             <button className="bg-red-800" onClick={handlePreviousPage}>
-//               Previous
-//             </button>
-//             <span>{currentPage}</span>
-//             <button className="bg-red-900" onClick={handleNextPage}>
-//               Next
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
