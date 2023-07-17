@@ -15,16 +15,23 @@ export default function Home() {
           {data?.data.map((book: IBook) => (
             <Card book={book}></Card>
           ))}
-          {/* <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card> */}
+          {/* const handlePreviousPage = () => {
+  if (currentPage > 1) {
+    setCurrentPage(currentPage - 1);
+  }
+};
+
+const handleNextPage = () => {
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  if (currentPage < totalPages) {
+    setCurrentPage(currentPage + 1);
+  }
+};
+
+// Update the pagination controls
+<button onClick={handlePreviousPage}>Previous</button>
+<span>{currentPage}</span>
+<button onClick={handleNextPage}>Next</button> */}
         </div>
       </div>
     </>
