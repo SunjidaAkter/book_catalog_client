@@ -1,9 +1,9 @@
 import Card from "../components/Card";
-import { useGetBooksQuery } from "../redux/features/book/bookApi";
+import { useGetTopBooksQuery } from "../redux/features/book/bookApi";
 import { IBook } from "../types/globalTypes";
 
 export default function Home() {
-  const { data, isLoading, error } = useGetBooksQuery(undefined);
+  const { data, isLoading, error } = useGetTopBooksQuery(undefined);
   console.log(data, isLoading, error);
   return (
     <>

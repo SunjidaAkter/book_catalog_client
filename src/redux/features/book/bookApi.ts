@@ -2,8 +2,17 @@ import { api } from "../../api/apiSlice";
 
 const bookApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getBooks: builder.query({
+    getTopBooks: builder.query({
       query: () => "/books",
+    }),
+    getBooks: builder.query({
+      query: (currentPage) => ({
+        url: "/books",
+        params: {
+          page: currentPage,
+          limit: 6,
+        },
+      }),
     }),
     singleBook: builder.query({
       query: (id) => `/books/${id}`,
@@ -23,8 +32,9 @@ const bookApi = api.injectEndpoints({
   }),
 });
 export const {
-  useGetBooksQuery,
+  useGetTopBooksQuery,
   useGetSingleReviewQuery,
   usePostReviewMutation,
   useSingleBookQuery,
+  useGetBooksQuery,
 } = bookApi;
