@@ -1,5 +1,3 @@
-# book_catalog_client
-
 ## [FrontEnd GitHub Repository Link](https://github.com/SunjidaAkter/book_catalog_client)
 
 ## [BackEnd GitHub Repository Link](https://github.com/SunjidaAkter/book_catalog_server)
