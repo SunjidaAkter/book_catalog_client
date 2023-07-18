@@ -22,11 +22,6 @@ export default function Details() {
           <p className="text-xl">
             Publication Date: {data?.data?.publicationDate}
           </p>
-          {/* <ul className="space-y-1 text-lg">
-            {product?.features?.map((feature: string) => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul> */}
           <button>Add to cart</button>
         </div>
       </div>
