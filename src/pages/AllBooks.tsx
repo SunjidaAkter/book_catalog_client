@@ -16,12 +16,13 @@ export default function Products() {
     (state) => state.book
   );
   const dispatch = useAppDispatch();
-  const { data, isLoading, error } = useGetBooksQuery({
+  const { data } = useGetBooksQuery({
     currentPage,
     publicationYear,
     genre,
     searchTerm,
   });
+  console.log(data);
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       dispatch(setCurrentPageForPrevious());

@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Review from "../components/Review";
 import { useSingleBookQuery } from "../redux/features/book/bookApi";
+import { FcLikePlaceholder } from "react-icons/fc";
 
 export default function Details() {
   const { id } = useParams();
-  const { data, isLoading, error } = useSingleBookQuery(id);
+  const { data } = useSingleBookQuery(id);
   return (
     <>
       <div className="flex max-w-7xl mx-auto items-center border-b border-gray-300 px-40">
@@ -22,7 +23,15 @@ export default function Details() {
           <p className="text-xl">
             Publication Date: {data?.data?.publicationDate}
           </p>
-          <button>Add to cart</button>
+          <button>
+            <FcLikePlaceholder></FcLikePlaceholder>
+          </button>
+          <div className="mt-5 flex justify-start items-center">
+            <Link to={`/edit-book/${data?.data?._id}`}>
+              <button className="btn btn-sm bg-lime-500">Edit</button>
+            </Link>
+            <button className="btn btn-sm btn-error ml-5">Delete</button>
+          </div>
         </div>
       </div>
       <Review />

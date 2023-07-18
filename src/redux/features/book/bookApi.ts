@@ -19,6 +19,22 @@ const bookApi = api.injectEndpoints({
     }),
     singleBook: builder.query({
       query: (id) => `/books/${id}`,
+      providesTags: ["books"],
+    }),
+    postBook: builder.mutation({
+      query: ({ data }) => ({
+        url: "/books",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    updateBook: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/books/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["books"],
     }),
     postReview: builder.mutation({
       query: ({ id, data }) => ({
@@ -35,9 +51,11 @@ const bookApi = api.injectEndpoints({
   }),
 });
 export const {
+  useUpdateBookMutation,
   useGetTopBooksQuery,
   useGetSingleReviewQuery,
   usePostReviewMutation,
   useSingleBookQuery,
   useGetBooksQuery,
+  usePostBookMutation,
 } = bookApi;
