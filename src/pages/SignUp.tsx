@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { SignupForm } from "../components/SignupForm";
 
 export default function Signup() {
@@ -14,7 +15,9 @@ export default function Signup() {
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            <h1 className="text-white font-bold text-xl">BOOK WORM</h1>
+            <Link to="/">
+              <h1 className="text-white font-bold text-xl">BOOK WORM</h1>
+            </Link>
             {/* <img className="h-8" src={} alt="" /> */}
           </div>
           <div className="relative z-20 mt-auto">
@@ -33,20 +36,29 @@ export default function Signup() {
             </div>
             <SignupForm />
             <p className="px-8 text-center text-sm text-muted-foreground">
+              Already have an account?{" "}
+              <Link
+                to="/signin"
+                className="underline underline-offset-4 hover:text-primary"
+              >
+                Signin here...
+              </Link>
+            </p>
+            <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
-              {/* <Link
+              <Link
                 to="/terms"
                 className="underline underline-offset-4 hover:text-primary"
               >
                 Terms of Service
-              </Link>{" "} */}
-              {/* and{" "}
+              </Link>{" "}
+              and{" "}
               <Link
                 to="/privacy"
                 className="underline underline-offset-4 hover:text-primary"
               >
                 Privacy Policy
-              </Link> */}
+              </Link>
               .
             </p>
           </div>

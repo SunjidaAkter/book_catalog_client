@@ -4,6 +4,10 @@ const bookApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getTopBooks: builder.query({
       query: () => "/books",
+      providesTags: ["status"],
+    }),
+    getList: builder.query({
+      query: () => "/books/list",
     }),
     getBooks: builder.query({
       query: (options) => ({
@@ -12,10 +16,11 @@ const bookApi = api.injectEndpoints({
           page: options?.currentPage,
           limit: 4,
           publicationYear: options?.publicationYear,
-          genre: options?.genre,
           searchTerm: options?.searchTerm,
+          genre: options?.genre,
         },
       }),
+      providesTags: ["books"],
     }),
     singleBook: builder.query({
       query: (id) => `/books/${id}`,
@@ -27,12 +32,20 @@ const bookApi = api.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["books"],
     }),
     updateBook: builder.mutation({
       query: ({ id, data }) => ({
         url: `/books/${id}`,
         method: "PATCH",
         body: data,
+      }),
+      invalidatesTags: ["books"],
+    }),
+    deleteBook: builder.mutation({
+      query: ({ id }) => ({
+        url: `/books/${id}`,
+        method: "DELETE",
       }),
       invalidatesTags: ["books"],
     }),
@@ -43,6 +56,38 @@ const bookApi = api.injectEndpoints({
         body: data,
       }),
       invalidatesTags: ["reviews"],
+    }),
+    postRead: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/books/read-list/${id}`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: [],
+    }),
+    postWish: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/books/wish-list/${id}`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: [],
+    }),
+    updateStatus: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/books/read-status/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["status"],
+    }),
+    postStatus: builder.mutation({
+      query: ({ data }) => ({
+        url: "/books/read-status",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: [],
     }),
     getSingleReview: builder.query({
       query: (id) => `/books/reviews/${id}`,
@@ -58,4 +103,10 @@ export const {
   useSingleBookQuery,
   useGetBooksQuery,
   usePostBookMutation,
+  usePostReadMutation,
+  usePostStatusMutation,
+  useUpdateStatusMutation,
+  usePostWishMutation,
+  useDeleteBookMutation,
+  useGetListQuery,
 } = bookApi;

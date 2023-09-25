@@ -15,7 +15,9 @@ export default function Signin() {
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
             {/* <img className="h-8" src={} alt="" /> */}
-            <h1 className="text-white font-bold text-xl">BOOK WORM</h1>
+            <Link to="/">
+              <h1 className="text-white font-bold text-xl">BOOK WORM</h1>
+            </Link>
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2"></blockquote>
@@ -32,6 +34,15 @@ export default function Signin() {
               </p>
             </div>
             <SigninForm />
+            <p className="px-8 text-center text-sm text-muted-foreground">
+              New here?{" "}
+              <Link
+                to="/signup"
+                className="underline underline-offset-4 hover:text-primary"
+              >
+                Signup here...
+              </Link>
+            </p>
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
               <Link
